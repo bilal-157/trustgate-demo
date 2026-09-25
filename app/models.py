@@ -12,3 +12,4 @@ class User:
     email: str
     password_hash: str
     is_authenticated: bool = False
+# clean-03: comment only
