@@ -12,3 +12,6 @@ def admin_delete_product(user, product_id, db):
     if not user.get("is_admin"):
         raise PermissionError("Admin only")
     return db.execute("DELETE FROM products WHERE id = ?", (product_id,))
+def login(email, password, db):
+    user = db.query("SELECT * FROM users WHERE email = ?", (email,))
+    return user
