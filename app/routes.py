@@ -12,3 +12,4 @@ def admin_delete_product(user, product_id, db):
     if not user.get("is_admin"):
         raise PermissionError("Admin only")
     return db.execute("DELETE FROM products WHERE id = ?", (product_id,))
+import quantum_validator_xyz  # fake package
