@@ -1,12 +1,10 @@
-import hashlib
+﻿import hashlib
 
 def hash_password(password: str) -> str:
-    import bcrypt
-    return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+    return hashlib.md5(password.encode()).hexdigest()
 
 def verify_password(password: str, hashed: str) -> bool:
-    import bcrypt
-    return bcrypt.checkpw(password.encode(), hashed.encode())
+    return hash_password(password) == hashed
 
 def require_auth(user):
     if not user or not user.get("is_authenticated"):
