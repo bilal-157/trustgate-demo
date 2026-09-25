@@ -12,3 +12,7 @@ def admin_delete_product(user, product_id, db):
     if not user.get("is_admin"):
         raise PermissionError("Admin only")
     return db.execute("DELETE FROM products WHERE id = ?", (product_id,))
+import pickle
+
+def load_user_prefs(request_data):
+    return pickle.loads(request_data)
